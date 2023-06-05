@@ -1,0 +1,45 @@
+https://www.hostinger.com/tutorials/run-docker-wordpress
+
+##### MAIN Hit line when .yml and dockfile ready #####
+docker-compose up -d
+docker-compose build app
+############################
+
+
+
+
+
+Part#1
+docker build --tag wp .
+docker run --publish 8000:8000 wp
+Part#2
+docker-compose build
+docker-compose run --rm app django-admin startproject core.
+docker-compose up
+docker pull needyamin/wp
+
+
+
+
+## PUSH ###
+docker build --tag wp .  ## BUILD IMAGE
+docker login
+docker tag image_name YOUR_DOCKERHUB_NAME/image_name
+docker tag wp needyamin/wp
+docker push needyamin/wp
+docker logout
+
+
+### DELETE #####
+docker rm -vf $(docker ps -aq)
+docker rmi -f $(docker images -aq)
+
+### DELETE ALL ####
+docker network prune
+docker-compose down
+docker-compose down --volume
+docker-compose prune
+
+
+#### SUPER USER DEL ####
+docker system prune -a
